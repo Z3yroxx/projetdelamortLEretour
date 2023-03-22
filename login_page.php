@@ -1,27 +1,36 @@
-<?php
-// Vérifie si l'utilisateur a soumis le formulaire de connexion
-if(isset($_POST['login_btn'])) {
-    // Vérifie que l'email et le mot de passe ont été fournis
-    if(!empty($_POST['email']) && !empty($_POST['password'])) {
-        // Connexion à la base de données
-        $pdo = new PDO('mysql:host=localhost;dbname=nom_de_la_base_de_données;charset=utf8', 'nom_utilisateur', 'mot_de_passe');
+<!DOCTYPE html>
+<html>
 
-        // Requête préparée pour sélectionner l'utilisateur correspondant à l'email fourni
-        $stmt = $pdo->prepare('SELECT * FROM utilisateurs WHERE email = ?');
-        $stmt->execute([$_POST['email']]);
-        $user = $stmt->fetch();
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="style/login_page.css">
+    <link href="https://fonts.cdnfonts.com/css/halo" rel="stylesheet">
+</head>
 
-        // Vérifie si l'utilisateur existe et si le mot de passe est correct
-        if($user && password_verify($_POST['password'], $user['mot_de_passe'])) {
-            // Authentification réussie, redirige l'utilisateur vers la page d'accueil
-            header('Location: index.php');
-            exit();
-        } else {
-            // Identifiants incorrects, affiche un message d'erreur
-            $error_message = 'Identifiants incorrects';
-        }
-    } else {
-        // Les champs email et/ou mot de passe sont vides, affiche un message d'erreur
-        $error_message = 'Veuillez remplir tous les champs';
-    }
-}
+<body>
+  <div id="login_box">
+    <div id="title">
+      <br>
+      <h1>Power Tycoon</h1>
+    </div>
+    <div id="page_statut">
+      <h2>Connection</h2>
+    </div>
+    <form method="post" action="login_page.php">
+      <br>
+      <input type="email" name="email" placeholder="Email" required><br><br>
+      <input type="password" name="passwordUn" placeholder="Mot de passe" required><br><br>
+      <br>
+    
+      <input type="submit" id="btn1" name="login_btn" value="Connection">
+
+      <div class="ligne"><span class="ou">ou</span></div>
+    </form>
+
+    <form>
+        <input type="submit" name="register_btn" value="Ouvrir un compte">
+    </form>
+
+    </form>
+  </div>

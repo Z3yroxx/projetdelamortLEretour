@@ -2,8 +2,9 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Login</title>
+  <title>Register</title>
   <link rel="stylesheet" href="style/login_page.css">
+  <link href="https://fonts.cdnfonts.com/css/halo" rel="stylesheet">
 </head>
 <body>
   <div id="login_box">

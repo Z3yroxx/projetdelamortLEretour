@@ -13,13 +13,11 @@ body {
     margin-top: 7%;
     background-color: rgba(255, 255, 255, 0.644);
 }
-@font-face {
-    font-family: "Halo";
-    src: url("../assets/Halo3.ttf");
-}
+
 #title {
     text-align: center;
     font-style: unset;
+    font-family: 'Halo', sans-serif;
     color: rgb(110, 172, 19);
     font-size: 20px;
     font-family:  'Halo', sans-serif;
@@ -27,6 +25,7 @@ body {
 
 #page_statut{
     text-align: center;
+    font-family: 'Halo', sans-serif;
     color: #545555;
 }
 
